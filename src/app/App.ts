@@ -11,7 +11,7 @@ import { registerRoutes } from "./routes";
 
 export class App {
   public readonly express: express.Express;
-  private readonly port: Number;
+  private readonly port: number;
   private logger: Logger;
   private server: Server | undefined;
 
@@ -27,7 +27,7 @@ export class App {
     this.express.use(router);
     registerRoutes(router);
 
-    router.use((err: Error, req: Request, res: Response, next: Function) => {
+    router.use((err: Error, req: Request, res: Response) => {
       this.logger.error(err);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     });
