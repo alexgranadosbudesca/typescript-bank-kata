@@ -1,0 +1,16 @@
+services:
+  App.controller.AccountDepositPostController:
+    class: ../../controllers/AccountDepositPostController
+    arguments: ["@Bank.Account.application.MoneyDepositor"]
+
+  App.controller.AccountTransferPostController:
+    class: ../../controllers/AccountTransferPostController
+    arguments: ["@Bank.Account.application.MoneyTransferer"]
+
+  App.controller.AccountWithdrawPostController:
+    class: ../../controllers/AccountWithdrawPostController
+    arguments: ["@Bank.Account.application.MoneyWithdrawer"]
+
+  App.controller.CreateAccountPostController:
+    class: ../../controllers/CreateAccountPostController
+    arguments: ["@Bank.Account.application.AccountCreator"]

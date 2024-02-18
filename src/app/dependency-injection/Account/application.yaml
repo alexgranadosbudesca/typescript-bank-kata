@@ -1,0 +1,20 @@
+services:
+  Bank.Account.application.AccountCreator:
+    class: ../../../Contexts/Bank/Account/application/Create/AccountCreator
+    arguments: ['@Bank.Account.domain.AccountRepository']
+  
+  Bank.Account.application.MoneyDepositor:
+    class: ../../../Contexts/Bank/Account/application/Deposit/MoneyDepositor
+    arguments: ['@Bank.Account.domain.AccountRepository']
+
+  Bank.Account.application.MoneyTransferer:
+    class: ../../../Contexts/Bank/Account/application/Transfer/MoneyTransferer
+    arguments: ['@Bank.Account.domain.AccountRepository']
+
+  Bank.Account.application.MoneyWithdrawer:
+    class: ../../../Contexts/Bank/Account/application/Withdrawal/MoneyWithdrawer
+    arguments: ['@Bank.Account.domain.AccountRepository']
+
+  Bank.Account.domain.AccountRepository:
+    class: ../../../Contexts/Bank/Account/infrastructure/Persistence/MongoAccountRepository
+    arguments: ['@Shared.ConnectionManager']

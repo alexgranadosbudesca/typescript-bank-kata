@@ -1,0 +1,14 @@
+services:
+  Shared.Logger:
+    class: ../../../Contexts/Bank/Shared/infrastructure/WinstonLogger
+
+  Shared.MongoConfig:
+    factory:
+      class: ../../../Contexts/Bank/Shared/infrastructure/Persistence/MongoConfigFactory
+      method: 'createConfig'
+
+  Shared.ConnectionManager:
+    factory:
+      class: ../../../Contexts/Bank/Shared/infrastructure/Persistence/MongoClientFactory
+      method: 'createClient'
+    arguments: ['app', '@Shared.MongoConfig']
