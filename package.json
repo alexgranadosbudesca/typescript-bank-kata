@@ -16,14 +16,14 @@
     "test:unit": "NODE_ENV=test jest",
     "start:node": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/app/main.ts",
     "start:db": "docker-compose up -d",
-    "stop:db": "docker-compose down --rmi local --volumes --remove-orphans" 
+    "stop:db": "docker-compose down --rmi local --volumes --remove-orphans"
   },
   "engines": {
     "node": ">=21.0.0"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
-    "copy": "^0.0.1",
+    "copy": "^0.3.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.4",
     "errorhandler": "^1.5.1",
