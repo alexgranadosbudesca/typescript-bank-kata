@@ -27,7 +27,9 @@ export class App {
     this.express.use(router);
     registerRoutes(router);
 
-    router.use((err: Error, req: Request, res: Response) => {
+    /* eslint-disable */
+    router.use((err: Error, req: Request, res: Response, next: Function) => {
+    /* eslint-enable */
       this.logger.error(err);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     });
