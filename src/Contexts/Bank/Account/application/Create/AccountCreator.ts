@@ -4,7 +4,7 @@ import { AccountRepository } from "../../domain/AccountRepository";
 import { AccountAlreadyExistsError } from "../../domain/Error/AccountAlreadyExists";
 
 export class AccountCreator {
-  constructor(private repository: AccountRepository) {}
+  constructor(private repository: AccountRepository) { }
 
   public async create(id: string): Promise<void> {
     const accountId = new AccountId(id);
@@ -16,5 +16,5 @@ export class AccountCreator {
     const account = Account.create(accountId);
 
     this.repository.save(account);
-    }
+  }
 }
