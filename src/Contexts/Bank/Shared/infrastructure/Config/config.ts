@@ -1,8 +1,8 @@
-var convict = require('convict');
+import convict from 'convict';
 
 convict.addFormat(require('convict-format-with-validator').ipaddress);
 
-var config = convict({
+const config = convict({
   env: {
     doc: 'The application environment.',
     format: ['production', 'development', 'test'],
@@ -19,7 +19,7 @@ var config = convict({
   },
 });
 
-var env = config.get('env');
+const env = config.get('env');
 config.loadFile( __dirname + '/' + env + '.json');
 
 config.validate({allowed: 'strict'});
