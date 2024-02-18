@@ -1,10 +1,10 @@
-import winston, { Logger as WinstonLoggerType } from "winston";
-import Logger from "../domain/Logger";
+import winston, { Logger as WinstonLoggerType } from 'winston';
+import Logger from '../domain/Logger';
 
 enum Levels {
-  DEBUG = "debug",
-  ERROR = "error",
-  INFO = "info",
+  DEBUG = 'debug',
+  ERROR = 'error',
+  INFO = 'info',
 }
 
 class WinstonLogger implements Logger {
@@ -17,7 +17,7 @@ class WinstonLogger implements Logger {
         winston.format.errors({ stack: true }),
         winston.format.splat(),
         winston.format.colorize(),
-        winston.format.simple()
+        winston.format.simple(),
       ),
       transports: [
         new winston.transports.Console(),

@@ -1,10 +1,10 @@
-import { NumberValueObject } from "../../Shared/domain/ValueObject/NumberValueObject";
+import { NumberValueObject } from '../../Shared/domain/ValueObject/NumberValueObject';
 
 export class Amount extends NumberValueObject {
   public add(amount: Amount): Amount {
     return new Amount(this.value + amount.value);
   }
-  
+
   public subtract(amount: Amount): Amount {
     return new Amount(this.value - amount.value);
   }

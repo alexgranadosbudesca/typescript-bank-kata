@@ -1,13 +1,13 @@
-import { AggregateRoot } from "../../Shared/domain/AggregateRoot";
-import { AccountCreatedDomainEvent } from "./AccountCreatedDomainEvent";
-import { AccountId } from "./AccountId";
-import { Amount } from "./Amount";
-import { DepositLimitSurpasedError } from "./Error/DepositLimitSurpasedError";
-import { OverdraftLimitSurpasedError } from "./Error/OverdraftLimitSurpasedError";
-import { OverdraftNotAllowedError } from "./Error/OverdraftNotAllowedError";
-import { Statement } from "./Statement";
-import { Transaction } from "./Transaction";
-import { TransactionId } from "./TransactionId";
+import { AggregateRoot } from '../../Shared/domain/AggregateRoot';
+import { AccountCreatedDomainEvent } from './AccountCreatedDomainEvent';
+import { AccountId } from './AccountId';
+import { Amount } from './Amount';
+import { DepositLimitSurpasedError } from './Error/DepositLimitSurpasedError';
+import { OverdraftLimitSurpasedError } from './Error/OverdraftLimitSurpasedError';
+import { OverdraftNotAllowedError } from './Error/OverdraftNotAllowedError';
+import { Statement } from './Statement';
+import { Transaction } from './Transaction';
+import { TransactionId } from './TransactionId';
 
 export class Account extends AggregateRoot {
   static readonly OVERDRAFT_LIMIT = -200;
@@ -16,7 +16,7 @@ export class Account extends AggregateRoot {
   constructor(
     readonly id: AccountId,
     readonly statement: Statement,
-    private balance: Amount
+    private balance: Amount,
   ) {
     super();
   }
@@ -27,7 +27,7 @@ export class Account extends AggregateRoot {
     account.record(
       new AccountCreatedDomainEvent({
         aggregateId: account.id.value,
-      })
+      }),
     );
 
     return account;
@@ -71,33 +71,21 @@ export class Account extends AggregateRoot {
     this.balance = this.balance.add(amount);
   }
 
-  static fromPrimitives(plainData: {
-    id: string;
-    transactions: string;
-    balance: number;
-  }): Account {
+  static fromPrimitives(plainData: { id: string; transactions: string; balance: number }): Account {
     const transactions = JSON.parse(plainData.transactions);
     const statement = new Statement([]);
     transactions.forEach(
-      (transaction: {
-        id: { value: string };
-        amount: { value: number };
-        date: string | number | Date;
-      }) =>
+      (transaction: { id: { value: string }; amount: { value: number }; date: string | number | Date }) =>
         statement.register(
           new Transaction(
             new TransactionId(transaction.id.value),
             new Amount(transaction.amount.value),
-            new Date(transaction.date)
-          )
-        )
+            new Date(transaction.date),
+          ),
+        ),
     );
 
-    return new Account(
-      new AccountId(plainData.id),
-      statement,
-      new Amount(plainData.balance)
-    );
+    return new Account(new AccountId(plainData.id), statement, new Amount(plainData.balance));
   }
 
   toPrimitives() {

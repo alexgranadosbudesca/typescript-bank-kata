@@ -1,7 +1,7 @@
-import { v4 as uuid } from "uuid";
-import validate from "uuid-validate";
-import { ValueObject } from "./ValueObject";
-import { InvalidArgumentError } from "./InvalidArgumentError";
+import { v4 as uuid } from 'uuid';
+import validate from 'uuid-validate';
+import { ValueObject } from './ValueObject';
+import { InvalidArgumentError } from './InvalidArgumentError';
 
 export class Uuid extends ValueObject<string> {
   constructor(value: string) {
@@ -15,9 +15,7 @@ export class Uuid extends ValueObject<string> {
 
   private ensureIsValidUuid(id: string): void {
     if (!validate(id)) {
-      throw new InvalidArgumentError(
-        `<${this.constructor.name}> does not allow the value <${id}>`
-      );
+      throw new InvalidArgumentError(`<${this.constructor.name}> does not allow the value <${id}>`);
     }
   }
 }

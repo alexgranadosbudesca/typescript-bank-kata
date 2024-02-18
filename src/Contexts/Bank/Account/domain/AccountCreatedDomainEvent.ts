@@ -1,17 +1,9 @@
-import { DomainEvent } from "../../Shared/domain/DomainEvent";
+import { DomainEvent } from '../../Shared/domain/DomainEvent';
 
 export class AccountCreatedDomainEvent extends DomainEvent {
-  static readonly EVENT_NAME = "account.created";
+  static readonly EVENT_NAME = 'account.created';
 
-  constructor({
-    aggregateId,
-    eventId,
-    occurredOn,
-  }: {
-    aggregateId: string;
-    eventId?: string;
-    occurredOn?: Date;
-  }) {
+  constructor({ aggregateId, eventId, occurredOn }: { aggregateId: string; eventId?: string; occurredOn?: Date }) {
     super({
       eventName: AccountCreatedDomainEvent.EVENT_NAME,
       aggregateId,
@@ -24,11 +16,7 @@ export class AccountCreatedDomainEvent extends DomainEvent {
     return {};
   }
 
-  static fromPrimitives(params: {
-    aggregateId: string;
-    eventId: string;
-    occurredOn: Date;
-  }): DomainEvent {
+  static fromPrimitives(params: { aggregateId: string; eventId: string; occurredOn: Date }): DomainEvent {
     const { aggregateId, occurredOn, eventId } = params;
     return new AccountCreatedDomainEvent({
       aggregateId,

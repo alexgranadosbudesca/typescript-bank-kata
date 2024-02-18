@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
-import httpStatus from "http-status";
-import { AccountCreator } from "../../Contexts/Bank/Account/application/Create/AccountCreator";
-import { InvalidArgumentError } from "../../Contexts/Bank/Shared/domain/ValueObject/InvalidArgumentError";
-import { Controller } from "./Controller";
+import { Request, Response } from 'express';
+import httpStatus from 'http-status';
+import { AccountCreator } from '../../Contexts/Bank/Account/application/Create/AccountCreator';
+import { InvalidArgumentError } from '../../Contexts/Bank/Shared/domain/ValueObject/InvalidArgumentError';
+import { Controller } from './Controller';
 
 type CreateAccountRequest = Request & {
   body: {

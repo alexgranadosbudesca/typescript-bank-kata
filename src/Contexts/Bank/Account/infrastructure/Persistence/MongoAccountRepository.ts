@@ -1,8 +1,8 @@
-import { Nullable } from "../../../Shared/domain/Nullable";
-import { MongoRepository } from "../../../Shared/infrastructure/Persistence/MongoRepository";
-import { Account } from "../../domain/Account";
-import { AccountId } from "../../domain/AccountId";
-import { AccountRepository } from "../../domain/AccountRepository";
+import { Nullable } from '../../../Shared/domain/Nullable';
+import { MongoRepository } from '../../../Shared/infrastructure/Persistence/MongoRepository';
+import { Account } from '../../domain/Account';
+import { AccountId } from '../../domain/AccountId';
+import { AccountRepository } from '../../domain/AccountRepository';
 
 interface AccountDocument {
   _id: string;
@@ -10,12 +10,9 @@ interface AccountDocument {
   balance: number;
 }
 
-export class MongoAccountRepository
-  extends MongoRepository<Account>
-  implements AccountRepository
-{
+export class MongoAccountRepository extends MongoRepository<Account> implements AccountRepository {
   protected collectionName(): string {
-    return "accounts";
+    return 'accounts';
   }
 
   public async search(id: AccountId): Promise<Nullable<Account>> {

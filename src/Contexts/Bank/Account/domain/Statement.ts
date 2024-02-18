@@ -1,5 +1,5 @@
-import { Amount } from "./Amount";
-import { Transaction } from "./Transaction";
+import { Amount } from './Amount';
+import { Transaction } from './Transaction';
 
 export class Statement {
   constructor(readonly transactions: Array<Transaction>) {}
@@ -14,7 +14,7 @@ export class Statement {
     deposits = this.transactions.filter((transaction: Transaction) => transaction.amount.isPositive());
 
     deposits.forEach((transaction: Transaction) => {
-        amount = amount.add(transaction.amount);
+      amount = amount.add(transaction.amount);
     });
 
     return amount;

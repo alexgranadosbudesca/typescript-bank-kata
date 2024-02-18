@@ -1,7 +1,7 @@
-import { AccountId } from "../../domain/AccountId";
-import { AccountRepository } from "../../domain/AccountRepository";
-import { Amount } from "../../domain/Amount";
-import { AccountNotFoundError } from "../../domain/Error/AccountNotFoundError";
+import { AccountId } from '../../domain/AccountId';
+import { AccountRepository } from '../../domain/AccountRepository';
+import { Amount } from '../../domain/Amount';
+import { AccountNotFoundError } from '../../domain/Error/AccountNotFoundError';
 
 export class MoneyWithdrawer {
   constructor(private repository: AccountRepository) {}

@@ -1,16 +1,12 @@
-import { AccountId } from "../../domain/AccountId";
-import { AccountRepository } from "../../domain/AccountRepository";
-import { Amount } from "../../domain/Amount";
-import { AccountNotFoundError } from "../../domain/Error/AccountNotFoundError";
+import { AccountId } from '../../domain/AccountId';
+import { AccountRepository } from '../../domain/AccountRepository';
+import { Amount } from '../../domain/Amount';
+import { AccountNotFoundError } from '../../domain/Error/AccountNotFoundError';
 
 export class MoneyTransferer {
   constructor(private repository: AccountRepository) {}
 
-  public async transfer(
-    fromId: string,
-    toId: string,
-    amount: number
-  ): Promise<void> {
+  public async transfer(fromId: string, toId: string, amount: number): Promise<void> {
     const fromAccountId = new AccountId(fromId);
     const toAccountId = new AccountId(toId);
     const transferAmount = new Amount(amount);

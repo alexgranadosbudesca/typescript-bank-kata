@@ -1,5 +1,5 @@
-import { Collection, MongoClient } from "mongodb";
-import { AggregateRoot } from "../../domain/AggregateRoot";
+import { Collection, MongoClient } from 'mongodb';
+import { AggregateRoot } from '../../domain/AggregateRoot';
 
 export abstract class MongoRepository<T extends AggregateRoot> {
   constructor(private _client: Promise<MongoClient>) {}
@@ -23,10 +23,6 @@ export abstract class MongoRepository<T extends AggregateRoot> {
       id: undefined,
     };
 
-    await collection.updateOne(
-      { _id: id },
-      { $set: document },
-      { upsert: true }
-    );
+    await collection.updateOne({ _id: id }, { $set: document }, { upsert: true });
   }
 }

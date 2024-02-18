@@ -1,5 +1,5 @@
-import "dotenv/config";
-import MongoConfig from "./MongoConfig";
+import 'dotenv/config';
+import MongoConfig from './MongoConfig';
 
 export class MongoConfigFactory {
   static createConfig(): MongoConfig {

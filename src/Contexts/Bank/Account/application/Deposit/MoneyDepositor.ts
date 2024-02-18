@@ -1,10 +1,10 @@
-import { AccountId } from "../../domain/AccountId";
-import { AccountRepository } from "../../domain/AccountRepository";
-import { Amount } from "../../domain/Amount";
-import { AccountNotFoundError } from "../../domain/Error/AccountNotFoundError";
+import { AccountId } from '../../domain/AccountId';
+import { AccountRepository } from '../../domain/AccountRepository';
+import { Amount } from '../../domain/Amount';
+import { AccountNotFoundError } from '../../domain/Error/AccountNotFoundError';
 
 export class MoneyDepositor {
-  constructor (private repository: AccountRepository) {}
+  constructor(private repository: AccountRepository) {}
 
   public async deposit(id: string, amount: number): Promise<void> {
     const accountId = new AccountId(id);

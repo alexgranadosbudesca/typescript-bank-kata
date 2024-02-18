@@ -1,5 +1,5 @@
 export class OverdraftNotAllowedError extends Error {
-  constructor () {
+  constructor() {
     super('Overdraft is not allowed in transfers.');
   }
 }
