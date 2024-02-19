@@ -1,49 +1,21 @@
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import errorHandler from 'errorhandler';
-import express, { Request, Response } from 'express';
-import Router from 'express-promise-router';
-import { Server } from 'http';
-import httpStatus from 'http-status';
-import Logger from '../Contexts/Bank/Shared/domain/Logger';
-import container from './dependency-injection';
-import { registerRoutes } from './routes';
+import { Server } from "./server";
+
 
 export class App {
-  public readonly express: express.Express;
-  private readonly port: number;
-  private logger: Logger;
-  private server: Server | undefined;
+  server?: Server;
 
-  constructor(port: number) {
-    this.port = port;
-    this.logger = container.get('Shared.Logger');
-    this.express = express();
-    const router = Router();
-    router.use(cors());
-    router.use(errorHandler());
-    this.express.use(bodyParser.json());
-    this.express.use(bodyParser.urlencoded({ extended: true }));
-    this.express.use(router);
-    registerRoutes(router);
+  async start() {
+    const port = process.env.PORT || "3300";
+    this.server = new Server(port);
 
-    /* eslint-disable */
-    router.use((err: Error, req: Request, res: Response, next: Function) => {
-      /* eslint-enable */
-      this.logger.error(err);
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
-    });
+    return this.server.listen();
   }
 
-  start(): void {
-    this.express.get('/dummy', (request: Request, response: Response) => {
-      response.send('something!');
-    });
-
-    this.server = this.express.listen(this.port);
+  get httpServer() {
+    return this.server?.getHTTPServer();
   }
 
-  stop(): void {
-    this.server?.close();
+  async stop() {
+    return this.server?.stop();
   }
 }

@@ -1,10 +1,13 @@
-import * as Process from 'process';
 import { App } from './App';
 
-const port = Number(Process.env.PORT) || 3300;
-console.log(`Starting the App in port ${port}`);
+try {
+  new App().start();
+} catch (e) {
+  console.log(e);
+  process.exit(1);
+}
 
-const app = new App(port);
-app.start();
-
-export default app;
+process.on("uncaughtException", (err) => {
+  console.log("uncaughtException", err);
+  process.exit(1);
+});

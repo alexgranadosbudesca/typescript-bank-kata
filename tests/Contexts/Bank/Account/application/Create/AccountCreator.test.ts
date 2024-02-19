@@ -6,18 +6,17 @@ import { AccountMother } from "../../domain/AccountMother";
 import { AmountMother } from "../../domain/AmountMother";
 import { StatementMother } from "../../domain/StatementMother";
 
-describe("MoneyDepositor", () => {
-  it("Deposits money into an account", async () => {
+describe("AccountCreator", () => {
+  it("Creates an account", async () => {
     const accountId = AccountIdMother.random();
     const account = AccountMother.create(
       accountId,
       StatementMother.create([]),
-      AmountMother.create(0)
+      AmountMother.create(0),
     );
+
     const repository = new AccountRepositoryMock();
     const applicationService = new AccountCreator(repository);
-
-    repository.save(account);
 
     await applicationService.create(accountId.value);
 

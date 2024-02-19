@@ -12,6 +12,7 @@ export class AccountRepositoryMock implements AccountRepository {
   }
 
   async save(account: Account): Promise<void> {
+    account.pullDomainEvents();
     this.mockSave(account);
     this.accounts.push(account);
   }
