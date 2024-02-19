@@ -20,13 +20,17 @@ export class AccountWithdrawPostController implements Controller {
     try {
       await this.moneyWithdrawer.withdraw(req.body.accountId, req.body.amount);
 
-      res.status(httpStatus.OK).send();
+      res.status(httpStatus.CREATED).send();
     } catch (err) {
       if (err instanceof AccountNotFoundError) {
         res.status(httpStatus.NOT_FOUND).json({ error: err.message });
       }
 
-      if (err instanceof InvalidArgumentError || err instanceof OverdraftLimitSurpasedError) {
+      if (err instanceof OverdraftLimitSurpasedError) {
+        res.status(httpStatus.CONFLICT).json({ error: err.message });
+      }
+
+      if (err instanceof InvalidArgumentError) {
         res.status(httpStatus.BAD_REQUEST).json({ error: err.message });
       }
     }

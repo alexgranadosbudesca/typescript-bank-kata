@@ -20,14 +20,18 @@ export class AccountDepositPostController implements Controller {
     try {
       await this.moneyDepositor.deposit(req.body.accountId, req.body.amount);
 
-      res.status(httpStatus.OK).send();
+      res.status(httpStatus.CREATED).send();
     } catch (err) {
+      if (err instanceof InvalidArgumentError) {
+        res.status(httpStatus.BAD_REQUEST).json({ error: err.message });
+      }
+
       if (err instanceof AccountNotFoundError) {
         res.status(httpStatus.NOT_FOUND).json({ error: err.message });
       }
-
-      if (err instanceof InvalidArgumentError || err instanceof DepositLimitSurpasedError) {
-        res.status(httpStatus.BAD_REQUEST).json({ error: err.message });
+ 
+      if (err instanceof DepositLimitSurpasedError) {
+        res.status(httpStatus.CONFLICT).json({ error: err.message });
       }
     }
   }

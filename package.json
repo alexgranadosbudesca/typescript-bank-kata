@@ -15,7 +15,7 @@
     "lint": "eslint src/**/*.ts{,x}",
     "lint:fix": "eslint --fix src/**/*.ts{,x}",
     "test": "npm run test:unit && npm run test:features",
-    "test:features": "cucumber-js tests/app/features",
+    "test:features": "NODE_ENV=test cucumber-js tests/app/features",
     "test:unit": "NODE_ENV=test jest",
     "test:unit:coverage": "NODE_ENV=test jest --coverage",
     "start:node": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/app/main.ts",
