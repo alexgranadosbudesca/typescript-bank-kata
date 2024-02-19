@@ -13,7 +13,7 @@ BeforeAll(async () => {
 
   await environmentArranger.arrange();
 
-  application = new App(3300);
+  application = new App();
   application.start();
 });
 
