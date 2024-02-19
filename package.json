@@ -10,7 +10,7 @@
     "build:tsc": "tsc -p tsconfig.json",
     "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
     "build:clean": "rm -r dist; exit 0",
-    "dev": "npm run start-db && npm run start-node",
+    "dev": "npm run start:db && npm run start:node",
     "format": "prettier --write src/**/*.ts{,x}",
     "lint": "eslint src/**/*.ts{,x}",
     "lint:fix": "eslint --fix src/**/*.ts{,x}",
