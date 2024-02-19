@@ -10,7 +10,19 @@ export class TransactionMother {
     return new Transaction(id, amount, date);
   }
 
+  static withAmount(amount: Amount): Transaction {
+    return this.create(
+      TransactionIdMother.random(),
+      amount,
+      faker.date.anytime(),
+    );
+  }
+
   static random(): Transaction {
-    return this.create(TransactionIdMother.random(), AmountMother.random(), faker.date.anytime());
+    return this.create(
+      TransactionIdMother.random(),
+      AmountMother.random(),
+      faker.date.anytime(),
+    );
   }
 }

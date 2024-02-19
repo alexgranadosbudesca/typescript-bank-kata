@@ -9,7 +9,7 @@ export class AccountCreator {
   public async create(id: string): Promise<void> {
     const accountId = new AccountId(id);
 
-    if (this.repository.search(accountId) instanceof Account) {
+    if (await this.repository.search(accountId) instanceof Account) {
       throw new AccountAlreadyExistsError(accountId.value);
     }
 

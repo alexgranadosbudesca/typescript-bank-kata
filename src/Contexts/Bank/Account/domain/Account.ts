@@ -71,6 +71,10 @@ export class Account extends AggregateRoot {
     this.balance = this.balance.add(amount);
   }
 
+  public getBalance(): Amount {
+    return this.balance;
+  }
+
   static fromPrimitives(plainData: { id: string; transactions: string; balance: number }): Account {
     const transactions = JSON.parse(plainData.transactions);
     const statement = new Statement([]);

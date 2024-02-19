@@ -19,6 +19,14 @@ export class AccountMother {
     );
   }
 
+  static withBalance(balance: Amount): Account {
+    return this.create(
+      AccountIdMother.random(),
+      StatementMother.random(),
+      balance
+    );
+  }
+
   static random(): Account {
     return this.create(
       AccountIdMother.random(),
