@@ -3,7 +3,7 @@
 While developing this kata, I made several decisions that I would like to explain in more detail.
 
 ### Design Pattern
-I followed Domain-Driven Design (DDD) and Hexagonal architecture as design patterns to structure the code and folders. The project consists of two main folders: app, which contains all configuration related to the project and entry points such as API controllers, and Contexts, which contains all classes related to the business domain. In the Contexts folder, we have the following structure:
+I followed Domain-Driven Design (DDD) and Hexagonal architecture as design patterns to structure the code and folders. The project consists of two main folders: `app`, which contains all configuration related to the project and entry points such as API controllers, and `Contexts`, which contains all classes related to the business domain. In the `Contexts` folder, we have the following structure:
 - `Bank` represents a bounded context.
   - `Account` represents a module.
       - In the `application` folder we have the application services that manage the aggregate root. 
