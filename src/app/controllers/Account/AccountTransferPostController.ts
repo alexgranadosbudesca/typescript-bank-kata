@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { MoneyTransferer } from '../../Contexts/Bank/Account/application/Transfer/MoneyTransferer';
-import { AccountNotFoundError } from '../../Contexts/Bank/Account/domain/Error/AccountNotFoundError';
-import { OverdraftNotAllowedError } from '../../Contexts/Bank/Account/domain/Error/OverdraftNotAllowedError';
-import { InvalidArgumentError } from '../../Contexts/Bank/Shared/domain/ValueObject/InvalidArgumentError';
-import { Controller } from './Controller';
+import { MoneyTransferer } from '../../../Contexts/Bank/Account/application/Transfer/MoneyTransferer';
+import { AccountNotFoundError } from '../../../Contexts/Bank/Account/domain/Error/AccountNotFoundError';
+import { OverdraftNotAllowedError } from '../../../Contexts/Bank/Account/domain/Error/OverdraftNotAllowedError';
+import { InvalidArgumentError } from '../../../Contexts/Bank/Shared/domain/ValueObject/InvalidArgumentError';
+import { Controller } from '../Controller';
 
 type TransferMoneyRequest = Request & {
   body: {

@@ -1,8 +1,8 @@
 import { Express } from 'express';
-import { AccountDepositPostController } from '../controllers/AccountDepositPostController';
-import { AccountTransferPostController } from '../controllers/AccountTransferPostController';
-import { AccountWithdrawPostController } from '../controllers/AccountWithdrawPostController';
-import { CreateAccountPostController } from '../controllers/CreateAccountPostController';
+import { AccountDepositPostController } from '../controllers/Account/AccountDepositPostController';
+import { AccountTransferPostController } from '../controllers/Account/AccountTransferPostController';
+import { AccountWithdrawPostController } from '../controllers/Account/AccountWithdrawPostController';
+import { CreateAccountPostController } from '../controllers/Account/CreateAccountPostController';
 import container from '../dependency-injection';
 
 export const register = (app: Express) => {
@@ -19,8 +19,8 @@ export const register = (app: Express) => {
     'App.controller.AccountWithdrawPostController',
   );
 
-  app.post('/create', createAccountPostController.run.bind(createAccountPostController));
-  app.post('/deposit', depositPostController.run.bind(depositPostController));
-  app.post('/transfer', transferPostController.run.bind(transferPostController));
-  app.post('/withdraw', withdrawPostController.run.bind(withdrawPostController));
+  app.post('/account', createAccountPostController.run.bind(createAccountPostController));
+  app.post('/account/deposit', depositPostController.run.bind(depositPostController));
+  app.post('/account/transfer', transferPostController.run.bind(transferPostController));
+  app.post('/account/withdraw', withdrawPostController.run.bind(withdrawPostController));
 };

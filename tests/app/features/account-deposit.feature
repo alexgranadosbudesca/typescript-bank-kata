@@ -2,7 +2,7 @@ Feature: Deposit money into account
 
   Scenario: A valid deposit
     Given there is an account with ID "a3bee771-493e-4249-929a-789bc13d1d26"
-    And I send a POST request to "/deposit" with body:
+    And I send a POST request to "/account/deposit" with body:
       """
       {
         "accountId": "a3bee771-493e-4249-929a-789bc13d1d26",
@@ -14,7 +14,7 @@ Feature: Deposit money into account
 
   Scenario: Surpassing daily deposit amount
     Given there is an account with ID "a3bee771-493e-4249-929a-789bc13d1d26"
-    And I send a POST request to "/deposit" with body:
+    And I send a POST request to "/account/deposit" with body:
       """
       {
         "accountId": "a3bee771-493e-4249-929a-789bc13d1d26",
@@ -30,7 +30,7 @@ Feature: Deposit money into account
       """
 
   Scenario: A non existing account
-    Given I send a POST request to "/deposit" with body:
+    Given I send a POST request to "/account/deposit" with body:
       """
       {
         "accountId": "ffb657a8-5077-4dcd-82de-d902eae4912f",
