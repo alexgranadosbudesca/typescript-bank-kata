@@ -20,7 +20,9 @@ export class Server {
 
     registerRoutes(router);
 
+    /* eslint-disable */
     router.use((err: Error, req: Request, res: Response, next: Function) => {
+      /* eslint-enable */
       console.log(err);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     });

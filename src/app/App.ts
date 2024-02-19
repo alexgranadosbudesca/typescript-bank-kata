@@ -1,6 +1,5 @@
 import { Server } from "./server";
 
-
 export class App {
   server?: Server;
 
