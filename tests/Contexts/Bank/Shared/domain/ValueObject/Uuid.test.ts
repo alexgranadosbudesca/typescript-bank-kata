@@ -1,5 +1,5 @@
-import { Uuid } from "../../../../../src/Contexts/Bank/Shared/domain/ValueObject/Uuid";
-import { InvalidArgumentError } from "../../../../../src/Contexts/Bank/Shared/domain/ValueObject/InvalidArgumentError";
+import { InvalidArgumentError } from "../../../../../../src/Contexts/Bank/Shared/domain/ValueObject/InvalidArgumentError";
+import { Uuid } from "../../../../../../src/Contexts/Bank/Shared/domain/ValueObject/Uuid";
 
 describe("Uuid", () => {
   it("Builds correctly", async () => {

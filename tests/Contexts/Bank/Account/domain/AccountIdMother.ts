@@ -1,5 +1,5 @@
 import { AccountId } from "../../../../../src/Contexts/Bank/Account/domain/AccountId";
-import { UuidMother } from "../../Shared/domain/UuidMother";
+import { UuidMother } from "../../Shared/domain/ValueObject/UuidMother";
 
 export class AccountIdMother {
   static create(id: string): AccountId {

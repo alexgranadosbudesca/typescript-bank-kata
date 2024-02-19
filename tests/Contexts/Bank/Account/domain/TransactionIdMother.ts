@@ -1,5 +1,5 @@
 import { TransactionId } from "../../../../../src/Contexts/Bank/Account/domain/TransactionId";
-import { UuidMother } from "../../Shared/domain/UuidMother";
+import { UuidMother } from "../../Shared/domain/ValueObject/UuidMother";
 
 export class TransactionIdMother {
   static create(id: string): TransactionId {
