@@ -38,9 +38,13 @@ describe("AccountRepository", () => {
 
   describe("#save", () => {
     it("should save an account", async () => {
-      const account = AccountMother.random();
+      const expectedAccount = AccountMother.random();
 
-      await repository.save(account);
+      await repository.save(expectedAccount);
+
+      const account = await repository.search(expectedAccount.id);
+
+      expect(expectedAccount).toEqual(account);
     });
   });
 });

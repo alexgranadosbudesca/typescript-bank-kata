@@ -41,9 +41,6 @@ I would have added an event bus to pull domain events from the aggregate root in
 ### CQRS, Command Bus and Query Bus
 Depending on project specifications and needs, I would probably have added these patterns as well.
 
-### Integration Test
-I would have added an integration test for the `MongoAccountRepository` class to ensure proper integration with the DB.
-
 ## How to use
 You can execute `npm run` to see all the commands related to the project.
 
