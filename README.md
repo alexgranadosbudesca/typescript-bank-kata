@@ -1,5 +1,19 @@
-# Bank Account Kata
-## Technical Decisions
+<h1 align="center">
+  🏦 Bank Account Kata 🏦
+</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&amp;logo=express&amp;logoColor=%2361DAFB" alt="Express.js">
+  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&amp;logo=mongodb&amp;logoColor=white" alt="MongoDB">
+  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&amp;logo=docker&amp;logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&amp;logo=jest&amp;logoColor=white" alt="Jest">
+  <img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&amp;logo=eslint&amp;logoColor=white" alt="ESLint">
+  <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&amp;logo=githubactions&amp;logoColor=white" alt="GitHub Actions">
+</p>
+
+
+##  Technical Decisions
 While developing this kata, I made several decisions that I would like to explain in more detail.
 
 ### Design Pattern
@@ -42,8 +56,9 @@ I would have added an event bus to pull domain events from the aggregate root in
 Depending on project specifications and needs, I would probably have added these patterns as well.
 
 ## How to use
-You can execute `npm run` to see all the commands related to the project.
 
-### Steps
+### Steps:
 1. Execute `npm i` to install project dependencies.
 2. Execute `npm run dev` to start the app.
+
+Additionally, you can execute `npm run` to see all the commands related to the project.
